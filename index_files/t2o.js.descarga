@@ -1,0 +1,395 @@
+﻿let Modelos = [];
+let ModelosPromo = [];
+let ListPromo = [];
+let click = false;
+
+$("#Showroom").on('click', function () {
+    event.preventDefault();
+
+    const ancho = $(window).width();
+    if (ancho < 768) {
+        $("#divMarcas").slideToggle();
+        $("#divListaMenu").slideToggle();
+        $("#headerShowroom").slideToggle();
+        $("#btnCloseShowroom").slideToggle();
+        esMovil = true;
+    }
+    else {
+        $("#headerShowroom").slideToggle();
+        const icon = $(this).find("i.bi-chevron-down, i.bi-chevron-up");
+        icon.toggleClass("bi-chevron-down bi-chevron-up");
+    }
+    return false;
+});
+$("#ShowroomClose").on('click', function () {
+    $("#divMarcas").slideToggle();
+    $("#divListaMenu").slideToggle();
+    $("#headerShowroom").slideToggle();
+    $("#btnCloseShowroom").slideToggle();
+});
+function mostrarCategorias(isFirst = false) {
+    let htmlCategorias = "<div id='MenuCategorias' class='row'>";
+    const objetosUnicos = {};
+    const objetosFiltrados = Modelos.filter((item) => {
+        if (!objetosUnicos[item.idCategoria]) {
+            objetosUnicos[item.idCategoria] = true;
+            return true;
+        }
+        return false;
+    });
+
+    if (isFirst)
+        $("#Header_hndidCategorias").val('');
+    $.each(objetosFiltrados, function (i, item) {
+        if (isFirst)
+            $("#Header_hndidCategorias").val($("#Header_hndidCategorias").val() + "," + item.idCategoria);
+        htmlCategorias += "<div class='col-4 Categoria activo'><label class='switch' style='vertical-align: text-bottom;'><input checked type='checkbox' data-id='" + item.idCategoria + "' onclick='seleccionarCategoria(this)'><span class='slider round'></span></label><span>" + item.Categoria + "</span><img src='/assets/img/" + item.Categoria.replace(" ", "-").replace("& ", "and-") + ".png' style='width: 50px;margin-bottom: 10px;'/></div>";
+    });
+    htmlCategorias += "</div>";
+    $("#submenuAutos div.container div.row.menuCategorias").html(htmlCategorias);
+}
+function MarcaSelect(Marca, PromoAuto) {
+    $(".autos > div:first-child span").removeClass("activo");
+    $(PromoAuto).addClass("activo");
+    let myModelosPromo;
+    if (Marca == "Todos") {
+        let selectModel;
+        selectModel = ModelosPromo.filter(x => x.Nuevo === "True");
+        myModelosPromo = selectModel.filter(obj1 => {
+            return ListPromo.some(obj2 => obj1.IdVer === obj2.idVer);
+        });
+    }
+    else {
+        let tmpModelosPromo = ModelosPromo.filter(obj1 => {
+            return ListPromo.some(obj2 => obj1.IdVer === obj2.idVer);
+        });
+        myModelosPromo = tmpModelosPromo.filter(p => p.Marca == Marca);
+    }
+    $(".autos #vehiculos").html(htmlModeloPromocion(myModelosPromo, ListPromo));
+}
+$("#submenuTitulos li").on('click', function () {
+    $("#submenuTitulos li").removeClass('activo');
+    $(this).addClass('activo');
+    const Marca = $(this).data("filtro");
+    let selectModel = Modelos;
+    var isTodos = true;
+    if (Marca !== "todos") {
+        selectModel = Modelos.filter(x => x.Marca.toUpperCase() === Marca.toUpperCase());
+        isTodos = false;
+        $("#submenuAutos div.menuCategorias").hide();
+        $("#submenuAutos div.container > div.row.modelos").html(htmlModelo(selectModel, isTodos));
+    }
+    else {
+        $("#submenuAutos div.menuCategorias").show();
+        $("#submenuAutos div.container > div.row.modelos").html(htmlModelo(selectModel, isTodos));
+        mostrarCategorias(true);
+    }
+});
+function changeVersionPromo(promo) {
+    const myPromo = ListPromo.filter(p => p.idVer == $(promo).val());
+    const ClaveGenSelect = ModelosPromo.find(p => p.IdVer == $(promo).val()).Clave_gen;
+    let tmoPromo = "";
+    let strHTML = "";
+
+    let TienePromo = false;
+    $.each(myPromo, function (i, VersionPromo) {
+        TienePromo = true;
+        tmoPromo += '<span>-' + VersionPromo.claim + '</span>';
+    });
+
+    if (TienePromo) {
+        strHTML += '<span class="tituloPromo">PROMOCIONES DEL MES</span><br>';
+    }
+    $(".autos #vehiculos .PrmoDisplay." + ClaveGenSelect).html(strHTML + '<div id="TextosPromo" class="TextosPromo">' + tmoPromo + '</div>');
+
+}
+function filtrar(marca) {
+    if (marca != "")
+        $("#checkmarca" + marca).prop("checked", true);
+
+    filterProducts();
+}
+
+var validForm = true;
+//$("#modalProcess").modal('hide');
+//$("#modalFinish").modal('hide');
+function htmlModeloPromocion(selectModel, Promos) {
+    let strHTML = "";
+    let NuevoModelo;
+    const Models = selectModel.filter((Model, index) => {
+        const ModelIndex = selectModel.findIndex(p => p.IdMod === Model.IdMod);
+        return ModelIndex === index;
+    });
+    if (Models.length > 0) {
+        $.each(Models, function (i, item) {
+            if (NuevoModelo != item.IdMod) {
+                let Promo = Promos.filter(p => p.clave_t2o == item.Clave_gen && p.idVer == item.IdVer);
+                strHTML += '<div class="col-sm-12 col-lg-4">'
+                    + '<img src = "https://spdfc.s3.us-west-2.amazonaws.com/autos/NuevosAutos/modelos/cotizacion/' + item.Clave_gen + '.png" > <br>'
+                    + '<span class="titulo">' + item.Modelo + ' ' + item.Anio + '</span><br>'
+                    + '<div class="flex-fill">'
+                    + 'Versión <br>'
+                    + '<select id="ddl_' + item.Clave_gen + '" onchange="changeVersionPromo(this);" class="form-select">';
+                let Versiones = selectModel.filter(m => m.Clave_gen == item.Clave_gen);
+                // Versiones
+                $.each(Versiones, function (i, itemM) {
+                    strHTML += '<option value="' + itemM.IdVer + '">' + itemM.Version + '</option>';
+                });
+                let TienePromo = false;
+                strHTML += '</select>'
+                    + '</div>';
+                //Promociones
+                strHTML += '<div class="PrmoDisplay ' + item.Clave_gen + '">';
+                let tmoPromo = "";
+                $.each(Promo, function (i, VersionPromo) {
+                    TienePromo = true;
+                    tmoPromo += '<span>-' + VersionPromo.claim + '</span>';
+                });
+
+                if (TienePromo) {
+                    strHTML += '<span class="tituloPromo">PROMOCIONES DEL MES</span><br>';
+                }
+                strHTML += '<div id="TextosPromo" class="TextosPromo">';
+                strHTML += tmoPromo;
+                strHTML += '</div>';
+                strHTML += '</div>';
+                strHTML += '<a onclick="openTerminosCondiciones(\'' + item.Clave_gen + '\');" href="#" data-bs-toggle="modal" data-bs-target="#TerminosCondiciones" name="TerminosCondiciones" style="text-decoration: underline;text-decoration: none;cursor: pointer;color: red;text-align: left;display: block;margin-left: 5%;padding: 14px 0;">Leer Términos y condiciones</a>';
+                strHTML += '<a href = "/Cotizacion/' + item.Modelo.replace(/\s/g, "-") + '/' + item.Anio + '/" class="btnRed"> Cotización</a>'
+                    + '<a href = "/Showroom/' + item.Marca.replace(/\s/g, "-") + '/' + item.Modelo.replace(/\s/g, "-") + '/' + item.Anio + '/" class="btnRedOut" > Explorar</a>'
+                    + '<a href = "/Prueba-de-manejo/' + item.Modelo.replace(/\s/g, "-") + '/' + item.Anio + '/" class="btnRedOut"> Prueba de Manejo</a>'
+                    + '</div> ';
+            }
+            else {
+                strHTML += '<option value="' + item.Version_gen + '">' + item.Version + '</option>';
+            }
+            NuevoModelo = item.IdMod;
+        });
+    }
+    else {
+        strHTML = "<Lable class='tituloNoExiste'>No existen promociones</Lable>";
+    }
+    return strHTML;
+}
+function openTerminosCondiciones(Clave_gen) {
+    const idVersion = $("#ddl_" + Clave_gen).val();
+    let promoSelect = ListPromo.filter(p => p.idVer == idVersion);
+    let strHTML = "";
+    strHTML += '<label class="titulo">Términos y Condiciones</label>';
+    $.each(promoSelect, function (i, item) {
+        strHTML += '<span class="rounded-circle noPromo m-2">' + (i + 1) + '</span>';
+        strHTML += '<span class="tituloPromo">' + item.claim + '</span>';
+        strHTML += '<span class="disclaimerPromo">' + item.disclaimer + ' </span>';
+    });
+    $("#TerminosCondiciones .container").html(strHTML);
+}
+function htmlModelo(selectModel, mostrarMarca = false) {
+    let strHTML = "";
+    let Caractaristica = "";
+    $.each(selectModel, function (i, item) {
+        if (item.Categoria != Caractaristica) {
+            Caractaristica = item.Categoria;
+            strHTML += (Caractaristica == "" ? "" : "</div>") + "<div class='row'><div class='tituloCategoria'><span>" + item.Categoria + "</span></div>";
+        }
+        strHTML += '<div class="col-sm-12 col-lg-2"><span><strong>' + (mostrarMarca ? item.Marca.toUpperCase() + " " : "") + item.Modelo + ' ' + item.Anio + '</strong></span><br><span>Desde ' + item.PrecioDesde + '</span><br><a href="/Showroom/' + item.Marca.replace(/\s/g, "-") + '/' + item.Modelo.replace(/\s/g, "-") + '/' + item.Anio + '/"><img src="https://spdfc.s3.us-west-2.amazonaws.com/autos/modelos/cotizacion/' + item.Clave_gen + getLastLetterModel(item.Modelo) + '.png"></a><br><a href="/Cotizacion/' + item.Modelo.replace(/\s/g, "-") + '/' + item.Anio + '/" class="btnRed">Cotización</a><a href="/Showroom/' + item.Marca.replace(/\s/g, "-") + '/' + item.Modelo.replace(/\s/g, "-") + '/' + item.Anio + '/" class="btnRedOut">Explorar</a></div>';
+    });
+    return strHTML + "</div>";
+}
+function seleccionarCategoria(categoria) {
+    if ($(categoria).prop('checked')) {
+        $(categoria).parent().parent().addClass("activo").removeClass("inactivo");
+        $("#Header_hndidCategorias").val($("#Header_hndidCategorias").val() + "," + $(categoria).data('id'));
+    }
+    else {
+        $("#Header_hndidCategorias").val($("#Header_hndidCategorias").val().replace("," + $(categoria).data('id'), ""));
+        $(categoria).parent().parent().addClass("inactivo").removeClass("activo");
+    }
+
+    const categoriasFiltrar = $("#Header_hndidCategorias").val().split(",");
+
+    let selectModel = Modelos.filter((item) => categoriasFiltrar.includes(item.idCategoria));
+    $("#submenuAutos div.container > div.row.modelos").html(htmlModelo(selectModel, true));
+}
+function htmlModeloMobile(selectModel, mostrarMarca = false) {
+    let strHTML = "";
+    let Caractaristica = "";
+    $.each(selectModel, function (i, item) {
+        if (item.Categoria != Caractaristica) {
+            Caractaristica = item.Categoria;
+            strHTML += (Caractaristica == "" ? "" : "</div>") + "<div class='row'><div class='tituloCategoria'><span>" + item.Categoria + "</span><img src='/assets/img/" + item.Categoria.replace(" ", "-").replace("& ", "and-") + ".png' style='width: 50px;'/></div>";
+        }
+        strHTML += '<div class="modeloMarca"><div class="row"><div class="col-12"><div class="col-1"></div><div class="col-10"><div class="row"><div class="col-4"><img src="https://spdfc.s3.us-west-2.amazonaws.com/autos/modelos/cotizacion/' + item.Clave_gen + getLastLetterModel(item.Modelo) + '.png"></div><div class="col-8"><span><strong>' + (mostrarMarca ? item.Marca.toUpperCase() + " " : "") + item.Modelo + ' ' + item.Anio + '</strong><br><span>Desde  ' + item.PrecioDesde + '</span></span></div></div></div><div class="col-1"></div></div></div><div class="row"><div class="col-6"><a href="/Cotizacion/' + item.Modelo.replace(/\s/g, "-") + '/' + item.Anio + '/" class="btnRed btnMenu">Cotización<i class="bi bi-caret-right-fill"></i></a></div><div class="col-6"><a href="/Showroom/' + item.Marca.replace(/\s/g, "-") + '/' + item.Modelo.replace(/\s/g, "-") + '/' + item.Anio + '/" class="btnRedOut btnMenu">Explorar<i class="bi bi-caret-right-fill"></i></a></div></div></div>';
+    });
+    return strHTML + "</div>";
+}
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
+
+function openPrivacidad() {
+    $("#frmPrivacidad").attr("src", "/privacidad/?popup=ture");
+}
+
+$("#btnNewLead").click(function () {
+    $("#modalProcess").modal('hide');
+    $("#modalFinish").modal('hide');
+    $("#btnEnviar").prop("disabled", false);
+});
+
+function copyText(id) {
+    var $bridge = $("<input>")
+    $("body").append($bridge);
+    $bridge.val($("#labelCopy_" + id).text()).select();
+    document.execCommand("copy");
+    $bridge.remove();
+}
+
+function changePrice(sel) {
+    var objects = $("." + sel.id.replace("ddl_", ""));
+    for (var obj of objects) {
+        $(obj).css("display", "none");
+    }
+    $(".col_" + sel.value).css("display", "inline-block");
+
+    if ($("#p_" + sel.value).html() != $("#pl_" + sel.value).html()) {
+        $("#boxp_" + sel.id.replace("ddl_", "")).css("display", "block");
+        $("#pl_" + sel.value).css("display", "block");
+    }
+    else
+        $("#boxp_" + sel.id.replace("ddl_", "")).css("display", "none");
+
+    $("#p_" + sel.value).css("display", "block");
+
+}
+
+function changePriceMod(sel) {
+    var objects = $("." + sel.id.replace("ddl_", ""));
+    var _count = 0;
+    for (var obj of objects) {
+        $(obj).removeClass("active");
+        $(obj).css("display", "none");
+    }
+
+    $(".col_" + sel.value).css("display", "inline-block");
+    $(".col_" + sel.value).first().addClass("active");
+
+    $("#txtColorActivo").html($(".col_" + sel.value).first().data('color'));
+
+    updatePromo(sel.value);
+}
+
+$("#selector-color li").click(function (e) {
+    $("#selector-color li").removeClass("active");
+    $(this).addClass("active");
+
+    $("#imagencolor_" + $(this).data('id')).attr("src", $(this).data('img'));
+})
+function obtenerCantidadesPorMarca(listaModelos) {
+    var cantidadesPorMarca = {};
+
+    for (var i = 0; i < listaModelos.length; i++) {
+        var marca = listaModelos[i].Marca;
+
+        if (cantidadesPorMarca[marca]) {
+            cantidadesPorMarca[marca]++;
+        } else {
+            cantidadesPorMarca[marca] = 1;
+        }
+    }
+
+    return cantidadesPorMarca;
+}
+function AgregarCantidadesPorMarca(cantidadesPorMarca) {
+    let cantidadesTotal = 0;
+    for (var marca in cantidadesPorMarca) {
+        cantidadesTotal += cantidadesPorMarca[marca];
+
+        $("#marcasModelosMobile li[data-filtro='" + marca.toLowerCase() + "'] .contadorModelos").html(cantidadesPorMarca[marca] + " MODELOS");
+    }
+    $("#marcasModelosMobile li[data-filtro='todos'] .contadorModelos").html(cantidadesTotal + " MODELOS");
+}
+
+$(document).ready(function () {
+    $("#divListaMenu .contactos, #divContactosDirectos .contactos").click(function () {
+        $("#divMarcas").slideToggle();
+        $("#divListaMenu").slideToggle();
+        $("#divContactosDirectos").slideToggle();
+    });
+    $(".MenuMobilIcon, .menuMobilIconClose").click(function () {
+        $("#menuMobileHome").slideToggle();
+        $("body").toggleClass('overflow');
+    });
+    /*Nuevo menu*/
+    $("#contactanos").on('click', function () {
+        $("#telefonos").slideToggle(100);
+        const icon = $(this).find("i.bi-chevron-down, i.bi-chevron-up");
+        icon.toggleClass("bi-chevron-down bi-chevron-up");
+        $("body").toggleClass('overflow');
+    });
+    /*Fin Nuevo menu*/
+    $("#marcasModelosMobile ul li").on('click', function () {
+        const Marca = $(this).data("filtro");
+        let selectModel = Modelos;
+        var isTodos = true;
+        if (Marca !== "todos") {
+            selectModel = Modelos.filter(x => x.Marca.toUpperCase() === Marca.toUpperCase());
+            isTodos = false;
+        }
+
+        $(this).find(".modelosAutos").html(htmlModeloMobile(selectModel, isTodos)).slideToggle();
+        if ($(this).find(".textos").find("i").text() == '+') {
+            $(this).find(".textos").find("i").html("-")
+        }
+        else {
+            $(this).find(".textos").find("i").html("+")
+        }
+        $(".btnMenu").click(function () {
+            click = true;
+            $("#marcasModelosMobile").slideToggle();
+            $("#loading").show();
+        });
+    });
+    $("header .MenuMobilIcon").click(function () {
+        $("header .menu").slideToggle(500);
+    });
+    $('.ir-arriba').click(function () {
+        $('body, html').animate({
+            scrollTop: '0px'
+        }, 300);
+    });
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 0) {
+            $('.ir-arriba').slideDown(300);
+        } else {
+            $('.ir-arriba').slideUp(300);
+        }
+    });
+});
+$(window).on('load', function () {
+    $("#spnTelVentas").html($("#Header_hndTelVentas").val()); 
+    $("#spnTelServicio").html($("#Header_hndTelServicio").val() + ($("#Header_hdnId").val() == '20' ? " Ext. 132" : ""));
+    $("#spanTelRefacciones").html($("#Header_hdnTelRefacciones").val() + ($("#Header_hdnId").val() == '20' ? "Ext. 121 y 125" : ""));
+    $("#spanTelSeminuevos").html($("#Header_hndTelSeminuevos").val());
+    $("#spanTelRefaccionesFooter").html($("#Header_hdnTelRefacciones").val());
+});
+function getLastLetterModel(model) {
+    if (model.toUpperCase().includes("E-PARTNER")) {
+        return "E";
+    }
+    if (model.toUpperCase().includes("NUEVA PARTNER")) {
+        return "N";
+    }
+    if (model.toUpperCase().includes("1500 RHO")) {
+        return "O";
+    }
+    return "";
+}

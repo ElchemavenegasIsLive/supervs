@@ -1,0 +1,30 @@
+//Hace el toogle del chevron del primer menu
+$('#togglemenu').on('click', function () {
+    $('#togglemenu span i').toggleClass('bi-caret-down-fill bi-caret-up-fill');
+    if ($(window).width() < 500) {
+        $("#submenu").hide();
+        $("#marcasModelosMobile").slideToggle();
+    }
+    else {
+        $("#opcionessubmenu").addClass("activo");
+    }
+});
+$("#iconAtras").on('click', function () {
+    $('#togglemenu').click();
+    $("#submenu").removeClass('show');
+    $("#opcionessubmenu").removeClass('activo');
+});
+//Hace el toogle del chevron del primer menu
+$('#togglemenufiltro').on('click', function () {
+    $('#togglemenufiltro span i').toggleClass('bi-chevron-down bi-chevron-up');
+    if ($("#filtros").height() == 0) {
+        $("#textofiltros").html("Ocultar Filtros");
+    } else {
+        $("#textofiltros").html("Mostrar Filtros");
+    }
+});
+if ($(".btnSiguiente").length > 0) {
+    const marca = $("#marca").val();
+    $(".btnSiguiente").addClass(marca);
+    $(".container-form .radioopt-formato input").addClass(marca);
+}

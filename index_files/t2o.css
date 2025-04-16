@@ -1,0 +1,3087 @@
+.overflow {
+    overflow: hidden !important;
+}
+
+.mr-2, .mx-2 {
+    margin-right: 0.5rem !important;
+}
+
+#loading {
+    display: none;
+    position: FIXED;
+    top: 0;
+    left: 0;
+    background: rgb(0 0 0 / 80%);
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+}
+
+#logo img {
+    width: 200px;
+}
+
+#telVentas, #telServicio {
+    opacity: 0;
+    z-index: 999;
+    position: absolute;
+    left: 30px;
+}
+
+#loading .loader {
+    margin: auto;
+    border: 10px solid #FFF;
+    border-radius: 50%;
+    border-top: 10px solid #787777;
+    width: 150px;
+    height: 150px;
+    animation: spinner 4s linear infinite;
+    margin-top: 50%;
+}
+
+footer iframe {
+    min-height: 400px;
+}
+
+footer .container {
+    padding: 30px 0px;
+}
+
+@keyframes spinner {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+header #numeroTelefonos {
+    background-color: #212121;
+    color: white;
+    height: 50px;
+    padding: 15px 50px 10px 50px;
+    margin-left: 80px;
+}
+
+    header #numeroTelefonos.jeep {
+        background-color: #424D07;
+    }
+
+    header #numeroTelefonos.dodge {
+        background-color: #CC2B2B;
+    }
+
+    header #numeroTelefonos.fiat {
+        background-color: #FF1530;
+    }
+
+    header #numeroTelefonos.peugeot,
+    header #numeroTelefonos.peugeot-professional {
+        background-color: #0074E8;
+    }
+
+    header #numeroTelefonos.ram {
+        /*background-color: #7F7F7F;*/
+    }
+
+    header #numeroTelefonos #contactanos {
+        font-size: 16px;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+        header #numeroTelefonos #contactanos i {
+            margin-right: 10px;
+        }
+
+            header #numeroTelefonos #contactanos i.bi-chevron-down,
+            header #numeroTelefonos #contactanos i.bi-chevron-up {
+                font-size: 10px;
+            }
+
+header #telefonos {
+    display: none;
+    background-color: #000000;
+    color: white;
+    padding: 40px 90px 40px 90px;
+    font-size: 16px;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    margin-left: 80px;
+}
+
+    header #telefonos a {
+        text-decoration: none;
+        color: white;
+    }
+
+    header #telefonos i {
+        margin-right: 10px;
+    }
+
+        header #telefonos i.bi-whatsapp {
+            background-image: url(/assets/img/logos/whatsapp.svg);
+            content: '';
+            width: 20px;
+            display: inline-block;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+            header #telefonos i.bi-whatsapp:before {
+                content: '';
+            }
+
+    header #telefonos .separadorHeader {
+        height: 50%;
+        width: 1px;
+        background-color: #707070;
+        display: block;
+        margin: 25% auto 0 auto;
+    }
+
+    header #telefonos .col-md-1:last-child .separadorHeader {
+        display: none;
+    }
+
+    header #telefonos .row .col-md-2 div {
+        margin: 10px 0px;
+        position: relative;
+    }
+
+
+header #redesHeader {
+    border-left: solid 1px #707070;
+    border-right: solid 1px #707070;
+    display: inline-block;
+    margin: 0 auto;
+    position: absolute;
+    right: 50px;
+}
+
+    header #redesHeader a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 0 10px;
+        display: inline-block;
+        text-align: center;
+    }
+
+        header #redesHeader a:hover {
+            color: #707070;
+        }
+
+header #MenuSecciones {
+    background-color: #000;
+    padding: 0px 50px;
+    margin-left: 80px;
+    position: relative;
+}
+
+    header #MenuSecciones > a {
+        text-align: end;
+        margin: 0 auto;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0px;
+        padding: 0px 50px !important;
+        !i;
+        !;
+    }
+
+    header #MenuSecciones a {
+        color: white;
+        font-size: 16px;
+        height: 71px;
+        vertical-align: bottom;
+        padding-top: 24px;
+    }
+
+        header #MenuSecciones a i.bi-chevron-down,
+        header #MenuSecciones a i.bi-chevron-up {
+            font-size: 12px;
+        }
+
+        header #MenuSecciones a img {
+            height: 56px;
+            margin-top: 5px;
+            margin-right: 0;
+            margin-left: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+    header #MenuSecciones .nav .nav-item {
+        height: 71px;
+        vertical-align: bottom;
+        display: block;
+        position: relative;
+    }
+
+        header #MenuSecciones .nav .nav-item:not(:first-child):hover {
+            background-color: #707070;
+        }
+
+            header #MenuSecciones .nav .nav-item:not(:first-child):hover a {
+                opacity: 0.7;
+            }
+
+header #MenuAside {
+    width: 80px;
+    position: fixed;
+    top: 0;
+    background-color: black;
+    height: 100%;
+    left: 0;
+    z-index: 9999;
+    /* padding: 0 10px; */
+    transition: width 0.3s ease; /* Animación del ancho */
+}
+
+    header #MenuAside:hover {
+        width: 250px;
+    }
+
+    header #MenuAside #sectionMenuIcon {
+        width: 60px;
+        margin-left: 13px;
+    }
+
+    header #MenuAside #menuIcon {
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+        display: block;
+        background-color: #334E8B;
+        border-radius: 20px;
+        width: 33px;
+        height: 33px;
+        text-align: center;
+        color: white;
+        margin: 60px auto 15px auto;
+    }
+
+        header #MenuAside #menuIcon.jeep {
+            background-color: #424D07;
+        }
+
+
+        header #MenuAside #menuIcon.dodge {
+            background-color: #CC2B2B;
+        }
+
+        header #MenuAside #menuIcon.fiat {
+            background-color: #FF1530;
+        }
+
+        header #MenuAside #menuIcon.peugeot,
+        header #MenuAside #menuIcon.peugeot-professional {
+            background-color: #0074E8;
+        }
+
+        header #MenuAside #menuIcon.ram {
+            background-color: #7F7F7F;
+        }
+
+    header #MenuAside #asaidMarcas a span {
+        display: none;
+    }
+
+    header #MenuAside:hover #asaidMarcas a span {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        position: absolute;
+        left: 70px;
+        top: 13px;
+        font-size: 15px;
+    }
+
+    header #MenuAside:hover #asaidMarcas a {
+        position: relative;
+    }
+
+    header #MenuAside #asaidMarcas .iconMarca {
+        width: 60px;
+    }
+
+    header #MenuAside #asaidMarcas a:hover {
+        display: block;
+        padding-left: 10px;
+    }
+
+    header #MenuAside #asaidMarcas a {
+        transition: background-color 0.3s ease;
+        display: block;
+        padding: 6px 10px;
+    }
+
+        header #MenuAside #asaidMarcas a:hover span {
+            padding-left: 10px;
+        }
+
+    header #MenuAside #asaidMarcas .jeep .imgMarca,
+    #divMarcas .jeep .imgMarca {
+        background-image: url('/assets/img/logos/logo-jeep-blanco.svg');
+        width: 35px;
+        height: 35px;
+        margin: 0 auto;
+        background-size: contain;
+    }
+
+    header #MenuAside #asaidMarcas .fiat .imgMarca,
+    #divMarcas .fiat .imgMarca {
+        background-image: url('/assets/img/logos/logo-fiat-blanco.svg');
+        width: 32px;
+        height: 32px;
+        margin: 0 auto;
+        background-size: contain;
+    }
+
+    header #MenuAside #asaidMarcas .dodge .imgMarca,
+    #divMarcas .dodge .imgMarca {
+        background-image: url('/assets/img/logos/logo-dodge-blanco.svg');
+        width: 60px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+    }
+
+    header #MenuAside #asaidMarcas .peugeot .imgMarca,
+    #divMarcas .peugeot .imgMarca {
+        background-image: url('/assets/img/logos/logo-peugeot-blanco.svg');
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+    }
+
+    header #MenuAside #asaidMarcas .peugeotProfessional .imgMarca,
+    #divMarcas .peugeotProfessional .imgMarca {
+        background-image: url('/assets/img/logos/logo-peugeot-professional-blanco.svg');
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+    }
+
+    header #MenuAside #asaidMarcas .ram .imgMarca,
+    #divMarcas .ram .imgMarca {
+        background-image: url('/assets/img/logos/logo-ram-blanco.svg');
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+    }
+
+    header #MenuAside #asaidMarcas .jeep:hover {
+        background-color: #424D07;
+    }
+
+        header #MenuAside #asaidMarcas .jeep:hover .imgMarca {
+            background-image: url('/assets/img/logos/logo-jeep-blanco.svg');
+        }
+
+    header #MenuAside #asaidMarcas .fiat:hover {
+        background-color: #FF1530;
+    }
+
+    header #MenuAside #asaidMarcas .dodge:hover {
+        background-color: #CC2B2B;
+    }
+
+        header #MenuAside #asaidMarcas .dodge:hover .imgMarca {
+            background-image: url('/assets/img/logos/logo-dodge-blanco-v2.svg');
+        }
+
+    header #MenuAside #asaidMarcas .peugeot:hover {
+        background-color: #0074E8;
+    }
+
+    header #MenuAside #asaidMarcas .ram:hover {
+        background-color: #7F7F7F;
+    }
+    /**/
+
+    header #MenuAside #asaidTelefonos a span {
+        display: none;
+    }
+
+    header #MenuAside:hover #asaidTelefonos a span {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        position: absolute;
+        left: 70px;
+        top: 14px;
+        font-size: 15px;
+    }
+
+    header #MenuAside:hover #asaidTelefonos a {
+        position: relative;
+    }
+
+    header #MenuAside #asaidTelefonos .iconMarca {
+        width: 60px;
+    }
+
+    header #MenuAside #asaidTelefonos a:hover {
+        display: block;
+        padding-left: 10px;
+        background-color: #343434;
+    }
+
+    header #MenuAside #asaidTelefonos a {
+        transition: background-color 0.3s ease;
+        padding: 6px 0px;
+        display: block;
+    }
+
+        header #MenuAside #asaidTelefonos a:hover span {
+            padding-left: 10px;
+        }
+
+    header #MenuAside #asaidTelefonos .btnWhatsappSeguros .imgWhatsappSeguros,
+    #divContactosDirectos .btnWhatsappSeguros .imgWhatsappSeguros {
+        background-image: url('/assets/img/icon/whatsapp-seguros.svg');
+        width: 30px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    header #MenuAside #asaidTelefonos .btnWhatsappVentas .imgWhatsappVentas,
+    #divContactosDirectos .btnWhatsappVentas .imgWhatsappVenta {
+        background-image: url('/assets/img/icon/whatsapp-ventas.svg');
+        width: 30px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    header #MenuAside #asaidTelefonos .btnWhatsappServicio .imgWhatsappServicio,
+    #divContactosDirectos .btnWhatsappServicio .imgWhatsappServicio {
+        background-image: url('/assets/img/icon/whatsapp-servicio.svg');
+        width: 30px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    header #MenuAside #asaidTelefonos .btnWhatsappSeminuevos .imgWhatsappSeminuevos,
+    #divContactosDirectos .btnWhatsappSeminuevos .imgWhatsappSeminuevos {
+        background-image: url('/assets/img/icon/whatsapp-seminuevos.svg');
+        width: 30px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    header #MenuAside #asaidTelefonos .btnWhatsappChat .imgWhatsappChat,
+    #divContactosDirectos .btnWhatsappChat .imgWhatsappChat {
+        background-image: url('/assets/img/icon/asistente-virtual.svg');
+        width: 30px;
+        height: 40px;
+        margin: 0 auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+#divContactosDirectos .btnContacto .imgContacto {
+    background-image: url('/assets/img/contactanos.svg');
+    width: 30px;
+    height: 40px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#divMarcas {
+    padding-bottom: 30px;
+    margin: 80px 30px 30px 30px;
+    border-bottom: solid 1px #707070;
+}
+
+#divListaMarcas a,
+#divContactosDirectos a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+    #divListaMarcas a .iconMarca,
+    #divContactosDirectos a .iconMarca {
+        vertical-align: middle;
+        display: inline-block;
+        width: 90px;
+    }
+
+#divListaMenu {
+    padding-bottom: 30px;
+    margin: 0px 30px 30px 30px;
+}
+
+    #divListaMenu li {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+
+        #divListaMenu li a,
+        #divListaMenu li span {
+            display: block;
+            width: 100%;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 0;
+        }
+
+            #divListaMenu li a .bi.bi-chevron-right {
+                position: absolute;
+                right: 0;
+            }
+
+#divContactosDirectos {
+    padding-bottom: 30px;
+    margin: 70px 30px 30px 30px;
+    display: none;
+}
+
+    #divContactosDirectos .contactos {
+        font-size: 16px;
+        text-decoration: none;
+        color: #707070;
+        padding: 15px 0;
+        /* margin: 0px 0 20px; */
+    }
+
+        #divContactosDirectos .contactos i {
+            color: white;
+            margin-right: 10px;
+        }
+
+    #divContactosDirectos a {
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 10px 0;
+    }
+
+footer #footerImgsMarcas {
+    padding: 40px 0 20px 0;
+    border-bottom: solid 1px #707070;
+}
+
+    footer #footerImgsMarcas .text-center {
+        width: 100px;
+        height: 65px;
+    }
+
+        footer #footerImgsMarcas .text-center:hover img {
+            opacity: 0.7;
+        }
+
+footer #footerContacto span#spanTelRefaccionesFooter {
+    margin: 0;
+    display: inline-block;
+    font-size: 15px;
+    padding: 0;
+    margin-left: -10px;
+    font-weight: normal;
+}
+
+footer #footerContacto span {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+
+footer #footerContacto a {
+    color: white;
+    text-decoration: none;
+}
+
+footer #footerContacto p {
+    font-size: 14px;
+}
+
+footer #footerContacto i {
+    font-size: 18px;
+    display: inline-block;
+    margin: 10px 16px 10px 0;
+}
+
+    footer #footerContacto i + p {
+        display: inline-block;
+    }
+
+footer #footerContacto .contaco p {
+    margin: 0;
+}
+
+footer #footerContacto {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #707070;
+}
+
+footer #footerRedes {
+    text-align: right;
+}
+
+    footer #footerRedes span {
+        font-size: 16px;
+        margin-right: 20px;
+    }
+
+    footer #footerRedes a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 0 10px;
+        display: inline-block;
+        text-align: center;
+    }
+
+footer #footerRedes {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #707070;
+}
+
+footer #footerPrivacidad a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+footer #footerPrivacidad {
+    padding-bottom: 20px;
+}
+
+footer i.bi-whatsapp {
+    background-image: url(/assets/img/logos/whatsapp.svg);
+    content: '';
+    width: 24px;
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+    footer i.bi-whatsapp:before {
+        content: '';
+    }
+
+#ui-datepicker-div {
+    display: none;
+}
+
+main {
+    margin-left: 80px !important;
+}
+
+footer .container > div {
+    padding: 0px 20px;
+}
+
+#headerShowroom {
+    padding-left: 80px !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+    display: none;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+    #headerShowroom .titleModelosHeader {
+        color: #707070;
+        font-size: 16px;
+        padding: 10px 5px 20px 5px;
+        display: block;
+    }
+
+    #headerShowroom .container {
+        margin: 0 auto;
+    }
+
+.form-control, .form-select {
+    text-transform: uppercase;
+}
+
+footer {
+    margin-left: 80px;
+}
+
+.vichle-text-01 {
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-bottom: 0px;
+}
+
+#headerShowroom .vichle-text-01,
+#headerShowroom .vichle-text-02 {
+    color: #000000;
+}
+
+.vichle-text-02 {
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-top: 0px;
+}
+
+#headerShowroom .vichle-text-02 {
+    font-size: 15px;
+}
+
+.zoom-in {
+    transition: transform 0.4s ease;
+}
+
+    .zoom-in:hover {
+        transform: scale(1.1);
+    }
+/*
+asistente-virtual.svg
+*/
+
+/*
+#boxHeader {
+    background-color: #000;
+    color: #fff !important;
+    text-align: right;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+    #boxHeader a {
+        color: white !important;
+        text-decoration: none !important;
+    }
+
+    #boxHeader .list-group {
+        flex-direction: row !important;
+    }
+
+    #boxHeader .items {
+        text-align: center;
+        display: block;
+        padding: 0px 45px;
+    }
+
+    #boxHeader .list-group.items .list-group {
+        display: inline-block;
+    }
+
+        #boxHeader .list-group.items .list-group .list-group-item {
+            display: inline-block;
+            background-color: black;
+            padding: 0px 10px;
+        }
+
+            #boxHeader .list-group.items .list-group .list-group-item a .TextIcon, #boxHeader .list-group.items .list-group .list-group-item a .Telefonos {
+                display: inline-block;
+            }
+
+            #boxHeader .list-group.items .list-group .list-group-item a i.bi {
+                padding: 0 4px;
+            }
+
+                #boxHeader .list-group.items .list-group .list-group-item a i.bi.bi-whatsapp {
+                    color: green;
+                }
+
+            #boxHeader .list-group.items .list-group .list-group-item a img {
+                width: 24px;
+                padding: 0px 4px 4px 4px;
+            }
+*/
+#urlsMedia img {
+    max-width: 80%;
+}
+
+#paso4 textarea, #formulario.CitaServicio #paso3 textarea, #formulario.PruebaManejo #paso3 textarea {
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    font-size: 14px;
+    font-family: 'Roboto';
+    margin-bottom: 50px;
+}
+
+#linkPrivacidad {
+    color: #334E8B;
+    /*color:red;*/
+    text-decoration: none;
+}
+
+#paso4 .container, #formulario.CitaServicio #paso3 .container, #formulario.PruebaManejo #paso3 .container, #formulario.comentarios .paso .container {
+    position: relative;
+    padding-left: 35px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+#home-ventajas-slider .separador-menu {
+    background: black;
+    width: 2px;
+    height: 150px;
+    display: block;
+    margin: auto 0 !important;
+}
+
+#imgModelo {
+    display: block;
+    margin: 0 auto;
+    max-width: 350px;
+    width: 100%;
+}
+
+#home-cotiza-auto strong, #Cotizacion .container strong {
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-family: 'Roboto-Medium';
+}
+
+#disclaymerDesde {
+    color: white;
+    font-family: 'Roboto-Medium';
+    font-size: 16px;
+    padding-left: 30px;
+    display: none;
+    padding-top: 20px;
+    padding-right: 30px;
+}
+
+    #disclaymerDesde #MarcaModeloAnio {
+        /* color: #c5140c; */
+    }
+
+    #disclaymerDesde #claim {
+        font-size: 11px;
+        line-height: 1.2;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+
+#bgContacto1 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/img/Banner_Contacto_01.jpg);
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-color: black;
+    min-height: 300px;
+    height: 500px;
+}
+
+#bgContacto2 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/img/Banner_Contacto_02.jpg);
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-color: black;
+    min-height: 300px;
+    height: 500px;
+}
+
+#contactanos > div:first-child {
+    padding: 0;
+}
+
+#submenu {
+    position: absolute;
+    top: 86px;
+    left: 0px;
+    z-index: 999;
+    background: white;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #7b7b7b;
+}
+
+    #submenu .container {
+        max-width: 100%;
+    }
+
+header {
+    display: block;
+    position: relative;
+}
+    /*
+    header div {
+        display: inline-block;
+    }*/
+
+    header div.menu {
+        width: 100%;
+        margin-left: -230px;
+        padding-left: 230px;
+    }
+
+    header div ul {
+        list-style-type: none;
+    }
+
+        header div ul li.nav-item {
+            text-transform: uppercase;
+        }
+
+            header div ul li.nav-item a.nav-link {
+                color: black;
+                font-weight: bold;
+                font-size: 12px;
+            }
+
+    header #logo {
+        z-index: 999;
+        position: relative;
+    }
+
+        header #logo a {
+            display: block;
+        }
+
+.DG #backRedEdge, .DG #backRedEdge2 {
+    background: #C51A18;
+}
+
+.CH #backRedEdge, .CH #backRedEdge2 {
+    background: #164075;
+}
+
+.FI #backRedEdge, .FI #backRedEdge2 {
+    background: #E30D13;
+}
+
+.JP #backRedEdge, .JP #backRedEdge2 {
+    background: #324B20;
+}
+
+.RM #backRedEdge, .RM #backRedEdge2 {
+    background: #848484;
+}
+
+.PE-PREMIUM #backRedEdge, .PE-PREMIUM #backRedEdge2, .PE-VANS #backRedEdge, .PE-VANS #backRedEdge2 {
+    background: #00A3E0;
+}
+
+.mobile {
+    display: none;
+}
+
+#backRedEdge, #backRedEdge2 {
+    width: 100%;
+    height: 250px;
+    margin: 50px 0;
+    border-top-right-radius: 5% 40%;
+    border-top-left-radius: 5% 0px;
+    border-bottom-left-radius: 5% 40%;
+    border-bottom-right-radius: 5% 0px;
+}
+
+.table .thead-red th {
+    background: #334E8B;
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+.slick-dots {
+    bottom: 0px !important;
+    color: #a4a4a4;
+    font-size: 12px;
+    font-weight: bolder;
+    font-family: 'Roboto-Bold';
+}
+
+#Promociones .menu {
+    background-color: black;
+    color: #6a6a6a;
+    font-family: 'Roboto-Bold';
+    font-size: 14px;
+    text-align: center;
+    padding: 40px 0;
+}
+
+    #Promociones .menu span {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+.autos > div > span:hover, .autos > div > span.activo {
+    border-bottom: solid 2px red;
+    opacity: 1;
+}
+
+.autos > div > span:not(:first-child) {
+    height: 55px;
+}
+
+.autos > div > span {
+    border-bottom: solid 2px white;
+    color: black;
+    font-family: 'Roboto-Bold';
+    font-size: 14px;
+    padding: 0 20px;
+    max-width: 220px;
+    display: inline-block;
+    cursor: pointer;
+    height: 45px;
+    opacity: 0.5;
+    width: 13%;
+}
+
+#PromosAutos > div > span > img {
+    width: 80%;
+}
+
+.autos > div > span > img {
+    width: 100%;
+}
+
+.autos > div:first-child {
+    border-bottom: solid 1px #373737;
+}
+
+.autos > div {
+    text-align: center;
+    padding: 30px 0;
+    margin: 40px 0;
+}
+
+.autos #vehiculos img {
+    width: 80%;
+}
+
+.autos #vehiculos a {
+    font-family: 'Roboto-Bold';
+    font-size: 14px;
+}
+
+.autos #vehiculos .titulo {
+    font-size: 16px;
+    font-family: 'Roboto';
+    display: block;
+    width: auto;
+    margin-left: 5%;
+    text-align: left;
+}
+
+.autos #vehiculos .tituloNoExiste {
+    font-size: 30px;
+    font-family: 'Roboto-Bold';
+    padding: 50px 0;
+}
+
+.autos #vehiculos select {
+    width: 94%;
+    font-size: 16px;
+}
+
+.autos #vehiculos .flex-fill {
+    font-size: 18px;
+    text-align: left;
+    margin-left: 5%;
+}
+
+.autos #vehiculos .PrmoDisplay {
+    text-align: left;
+    margin-left: 5%;
+    min-height: 120px;
+    padding: 15px 0;
+}
+
+    .autos #vehiculos .PrmoDisplay .tituloPromo {
+        font-size: 18px;
+        font-family: 'Roboto-Bold';
+    }
+
+.autos #vehiculos .PrmoDisplay {
+    font-size: 14px;
+}
+
+    .autos #vehiculos .PrmoDisplay .TextosPromo span {
+        display: block;
+        padding-bottom: 10px;
+    }
+
+#Promociones .menu span:hover, #Promociones .menu span.activo {
+    color: white;
+    border-bottom: solid 3px #c5140c;
+}
+
+#submenuAutos .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+    #submenuAutos .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+#submenuAutos .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+#submenuAutos input:checked + .slider {
+    background-color: red;
+}
+
+#submenuAutos input:focus + .slider {
+    box-shadow: 0 0 1px red;
+}
+
+#submenuAutos input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+#submenuAutos div {
+    text-align: center;
+    font-size: 14px;
+    padding: 15px;
+}
+
+    #submenuAutos div div.menuCategorias {
+        padding: 0;
+        border-bottom: solid 1px black;
+        margin-left: 15px;
+        margin-right: 30px;
+    }
+
+    #submenuAutos div.modelos > .row:first-child .tituloCategoria {
+        border-top: none;
+        padding: 0;
+    }
+
+    #submenuAutos div.tituloCategoria {
+        text-align: left;
+        border-top: solid 1px black;
+        padding: 25px 15px 15px 15px;
+    }
+
+        #submenuAutos div.tituloCategoria span {
+            font-weight: bolder;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+    #submenuAutos div.Categoria span {
+        font-weight: bolder;
+        padding: 10px 10px;
+        font-size: 21px;
+    }
+
+    #submenuAutos div.Categoria.inactivo span {
+        color: #CCC;
+    }
+
+.modelosAutos div.tituloCategoria {
+    text-align: left;
+}
+
+    .modelosAutos div.tituloCategoria span {
+        font-weight: bolder;
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+
+#submenuAutos div img {
+    width: 100%;
+}
+
+#submenuAutos div.Categoria.inactivo img {
+    opacity: 0.3;
+}
+
+#submenuAutos div a.btnRed, .autos #vehiculos a.btnRed {
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: 90%;
+    margin: 5px auto;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#submenuAutos div a.btnRedOut, .autos #vehiculos a.btnRedOut {
+    color: black;
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: 90%;
+    border: red 1px solid;
+    margin: 5px auto;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#home-modelos-recientes-nav img {
+    cursor: pointer;
+}
+
+#submenuTitulos ul li img {
+    width: 150px !important;
+}
+
+#submenuTitulos ul li {
+    opacity: 0.4;
+}
+
+    #submenuTitulos ul li:hover {
+        opacity: 1;
+    }
+
+#submenu ul li.activo {
+    opacity: 1;
+}
+
+#Promos {
+    padding: 80px 0;
+}
+
+    #Promos > div.activo {
+        opacity: 1;
+        display: block;
+    }
+
+    #Promos > div {
+        opacity: 0;
+        display: none;
+    }
+
+
+    #Promos .container .slick-slide img.full {
+        display: block;
+        width: 100%;
+    }
+
+    #Promos .container .slick-slide img.mobile {
+        display: none;
+    }
+
+    #Promos .container .slick-prev {
+        background: url(/assets/img/Icono_Flecha_Izq.png);
+        background-size: cover;
+        left: -50px;
+    }
+
+    #Promos .container .slick-next {
+        background: url(/assets/img/Icono_Flecha_Der.png);
+        background-size: cover;
+    }
+
+    #Promos .container .slick-arrow:before {
+        content: "";
+    }
+
+    #Promos .container .slick-arrow {
+        width: 50px;
+        height: 50px;
+        right: -50px;
+    }
+
+        #Promos .container .slick-arrow.slick-disabled {
+            opacity: 0.5;
+        }
+
+#Descargas .btn {
+    border: solid 1px white;
+    border-radius: 50px;
+    padding: 10px;
+    width: 200px;
+    margin: 0 10px;
+    background-color: white;
+    font-family: 'Roboto-Medium';
+}
+
+    #Descargas .btn.cat {
+        border: solid 1px white;
+        border-radius: 50px;
+        padding: 10px;
+        width: 200px;
+        margin: 0 10px;
+        background-color: transparent;
+    }
+
+.DG #Descargas .btn a {
+    color: #C51A18;
+}
+
+.CH #Descargas .btn a {
+    color: #164075;
+}
+
+.FI #Descargas .btn a {
+    color: #E30D13;
+}
+
+.JP #Descargas .btn a {
+    color: #324B20;
+    padding: 10px 28px;
+}
+
+.RM #Descargas .btn a {
+    color: #848484;
+}
+
+.PE-PREMIUM #Descargas .btn a, .PE-VANS #Descargas .btn a {
+    color: #00A3E0;
+}
+
+#Descargas .btn a {
+    text-decoration: none;
+    color: #c5140c;
+    padding: 10px 28px;
+}
+
+#Descargas .btn.cat a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 41px;
+}
+
+#CaracteristicasVersiones .titulo {
+    font-family: 'Roboto-Medium';
+}
+/* Hide the browser's default checkbox */
+#paso4 input, #formulario.CitaServicio #paso3 input[type='checkbox'], #formulario.PruebaManejo #paso3 input[type='checkbox'], #formulario.comentarios .paso input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    left: 0;
+}
+
+/* On mouse-over, add a grey background color */
+input ~ .checkmark {
+    background-color: transparent;
+    border: solid 1px white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: transparent;
+    border: solid 1px white;
+    background: transparent;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #334E8B;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    color: #334E8B;
+}
+
+.listado article .btn-cotizacion {
+    font-size: 20px !important;
+    padding: 5px 25px !important;
+}
+
+.listado article .btn-general {
+    font-size: 20px !important;
+    padding: 5px 25px !important;
+}
+
+.ialica-bonificaciones-blanco:before {
+    content: '\e802';
+}
+
+.ddlVersionNuevo {
+    width: 300px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.ficha-nuevo .zona-color ul li.active::after {
+    width: 22px !important;
+}
+
+.ficha-nuevo .zona-color ul li {
+    width: 22px !important;
+    height: 22px !important;
+    margin-right: 5px !important;
+}
+
+.ficha-nuevo .zona-cotizador {
+    width: 90% !important;
+    margin: 45px auto !important;
+}
+
+    .ficha-nuevo .zona-cotizador .form-control, .ficha-nuevo .zona-cotizador .form-select {
+        padding: 3px 7px 3px 7px !important;
+        font-size: 1.8rem;
+    }
+
+    .ficha-nuevo .zona-cotizador .zona-lopd .label-lopd {
+        font-size: 1.8rem;
+    }
+
+    .ficha-nuevo .zona-cotizador .zona-lopd .lopd-checkbox {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+    }
+
+.ficha-nuevo .zona-detalles {
+    margin-top: 60px !important;
+}
+
+.sweet-alert {
+    z-index: 999999999 !important;
+}
+
+.ficha-nuevo .visor-coche {
+    background-image: none !important;
+}
+
+#boxPromociones img {
+    text-align: center;
+}
+
+#boxPromociones h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+.noPromo {
+    width: 25px;
+    height: 25px;
+    background-color: #c5140c;
+    text-align: center;
+    color: #FFF;
+    display: block;
+    font-size: 1.8rem;
+}
+
+#TerminosCondiciones .container {
+    padding-bottom: 30px;
+}
+
+    #TerminosCondiciones .container .titulo {
+        width: 100%;
+        margin: 10px auto 5px auto;
+        text-align: center;
+    }
+
+#TerminosCondiciones .disclaimerPromo {
+    font-size: 14px !important;
+    display: block;
+    padding: 0;
+    font-family: 'Roboto';
+    padding-bottom: 20px;
+}
+
+#TerminosCondiciones .tituloPromo {
+    font-size: 15px;
+    font-family: 'Roboto-Bold';
+    color: #959595;
+    padding-bottom: 10px;
+    display: block;
+}
+
+.disclaimerPromo {
+    font-size: 10px !important;
+    color: #959595;
+}
+
+.ficha-nuevo .zona-detalles #slider-versiones .slider ul li:before {
+    content: none !important;
+    text-indent: -5px !important;
+    margin-right: 5px;
+}
+
+.ficha-nuevo .zona-detalles #slider-versiones .slider ul li {
+    list-style-type: circle !important;
+}
+
+.boxPrivacidad {
+    font-size: 14px;
+    text-align: justify;
+}
+
+    .boxPrivacidad h2 {
+        text-align: center;
+    }
+
+    .boxPrivacidad p {
+    }
+
+.zona-listados .aviso-showroom {
+    margin-top: 25px !important;
+    font-size: 1.5rem !important;
+    color: #AAA !important;
+    text-align: justify;
+}
+
+.zona-btn-promocion a {
+    text-decoration: none;
+}
+
+.ir-arriba {
+    display: none;
+    padding: 5px;
+    background: #334E8B;
+    font-size: 45px;
+    color: #fff;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 45px;
+    border-radius: 5px;
+}
+
+.boxWhats {
+    /* background-color: #25D366 !important; */
+}
+
+.boxWhatsServicio {
+    /* background-color: #0094ff !important; */
+}
+
+.boxWhatsSeminuevo {
+    /* background-color: #dfb417 !important; */
+}
+
+.zona-ficha-precio .checkbox-lopd {
+    font-size: 3.2rem;
+}
+
+    .zona-ficha-precio .checkbox-lopd a, .ficha-nuevo .zona-cotizador .zona-lopd .label-lopd a, .modal-custom .modal-dialog .modal-content .checkbox-lopd a {
+        text-decoration: none;
+        color: #c5140c;
+    }
+
+#float-menu i.icon {
+    font-size: 38px !important;
+}
+
+#submenuTitulos ul li {
+    border-right: 2px #000 solid;
+    margin: 25px 10px;
+    height: 36px;
+    text-align: center;
+    font-family: 'Roboto-Bold';
+    font-size: 12px;
+    cursor: pointer;
+}
+
+    #submenuTitulos ul li span {
+        margin: 0;
+        padding: 7px;
+        position: relative;
+        display: block;
+        cursor: pointer;
+    }
+
+#submenuTitulos ul.slick-dots li {
+    border: none;
+    margin: 0;
+    height: auto;
+    opacity: 1;
+    padding: 0;
+}
+
+@media (min-width: 1200px) {
+    .fs-1 {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    /*
+    #divBtnPhones {
+        display: none;
+    }
+    #divPhones {
+        display: block !important;
+    }
+     */
+    #float-menu > a {
+        width: 45px !important;
+        padding: 10px !important;
+    }
+
+    #float-menu span.icon img {
+        width: 30px !important;
+    }
+
+    #float-menu span.icon i {
+        font-size: 27px !important;
+        /* width: 30px !important; */
+        /* display: inline-block; */
+        margin-left: -5px;
+    }
+
+    #float-menu {
+        right: 3px !important;
+    }
+}
+
+.bloque a {
+    color: #25D366;
+}
+
+#formulario .paso.row input, #formulario .paso.row textarea {
+    margin: 15px;
+    background-color: transparent;
+    font-size: 14px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: 'Roboto';
+    color: #707070;
+}
+
+#formulario .paso.row.activo {
+    display: block;
+}
+
+#formulario .paso > div .form-select.error, #formulario .paso.row input.error {
+    border-bottom: solid 2px #c5140c;
+}
+
+#formulario .paso > div .form-select {
+    background-color: transparent;
+    color: #787979;
+    border-bottom: solid 1px #ccc;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    font-size: 14px;
+    background-image: url('../img/play.png');
+    background-size: 8px;
+    margin: 15px;
+    font-family: 'Roboto';
+}
+
+#home-modelos-recientes > h1, #home-promociones-mes > h1, #home-seminuevos > h1, #home-ventajas > h1 {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0px !important;
+    margin-bottom: -15px !important
+}
+
+footer .container-fluid.p-0 > .row > .row span.title a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.informacionFooter {
+    max-width: 1250px;
+    padding-top: 40px;
+    margin: 0 auto;
+    font-size: 14px;
+    padding-bottom: 50px;
+}
+
+#home-cotiza-auto, #Cotizacion {
+    background-color: #f1f1f1;
+}
+
+    #home-cotiza-auto .container, #Cotizacion .container {
+        background-color: white;
+        padding: 50px;
+    }
+
+        #home-cotiza-auto .form-control, #home-cotiza-auto .form-select, #Cotizacion .container .form-select, #Cotizacion .form-control {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 15px;
+        }
+
+#formulario .paso.row {
+    display: none;
+}
+
+.btnAnterior {
+    background: transparent;
+    width: 200px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 16px;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    display: none;
+    border: solid 1px;
+}
+
+#btnEnviarCOM.btnSiguiente {
+    display: block;
+    border: none;
+    position: relative;
+    margin: 40px auto 0 auto;
+}
+
+.btnSiguiente {
+    background: #334E8B;
+    width: 200px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 16px;
+    color: white;
+    padding: 10px 20px;
+    right: 0;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.jeep.btnSiguiente {
+    background: #424D07;
+}
+
+.dodge.btnSiguiente {
+    background: #CC2B2B;
+}
+
+.fiat.btnSiguiente {
+    background: #FF1530;
+}
+
+.peugeot.btnSiguiente,
+.peugeot-professional.btnSiguiente {
+    background: #0074E8;
+}
+
+.ram.btnSiguiente {
+    background: #000;
+}
+
+#btnBacFormulario > div > div.siguiente, #btnBacFormularioMobile > div > div.siguiente {
+    width: 100%;
+    background: #272828;
+    padding: 0px 0px 50px 0px;
+    text-transform: uppercase;
+    font-family: 'Roboto-Medium';
+}
+
+    #btnBacFormulario > div > div.siguiente > div, #btnBacFormularioMobile > div > div.siguiente > div {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        padding-bottom: 25px;
+    }
+
+.paso.row h2 {
+    font-size: 14px;
+    font-family: 'Roboto-Medium';
+}
+
+#btnBacFormulario > div {
+    padding: 0;
+}
+
+#btnBacFormulario {
+    background: black;
+}
+
+#float-menu span.icon img {
+    max-width: 41px;
+}
+
+#float-menu {
+    background: #2f2f2f;
+    top: 0 !important;
+    padding-top: 50px;
+    right: 0px !important;
+}
+/*
+#divBtnPhones .bi.bi-caret-up-fill {
+    display: none;
+}
+*/
+
+.MenuMobilIcon {
+    display: none;
+}
+
+.separador_slider {
+    width: 20px;
+    height: 2px;
+    background: #a4a4a4;
+    margin-bottom: -1px;
+}
+
+.container-form .radioopt-formato label {
+    cursor: pointer;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: white;
+    font-size: 14px;
+    width: 80%;
+    font-family: 'Roboto';
+}
+
+#contactanos .avisoprivacidad {
+    padding-left: 22px;
+}
+
+    #contactanos .avisoprivacidad .container {
+        padding-right: 0;
+    }
+
+#SliderExterior {
+    display: block;
+}
+
+#SliderInterior {
+    display: none;
+}
+
+.container-form .radioopt-formato label:hover {
+    background-color: #334E8B;
+}
+
+.DireccionMobile {
+    display: none;
+}
+
+#home-main-slider .slick-dots .slick-active {
+    color: #3b3c3c !important;
+}
+
+#home-main-slider .separador_slider {
+    background: #3b3c3c;
+}
+
+#home-main-slider .slick-dots .slick-active a {
+    font-size: 14px;
+}
+
+#InteriorExterior img {
+    width: 100%;
+}
+
+#InteriorExterior .slick-dots li {
+    width: auto;
+    color: white;
+    font-size: 25px;
+    padding: 0px 0px 60px 0px;
+    font-family: 'Roboto';
+    margin: 0;
+}
+
+#InteriorExterior .separador_slider {
+    width: 400px;
+    background: white;
+    height: 1px;
+}
+
+    #InteriorExterior .separador_slider.selected, #InteriorExterior .separador_slider:hover {
+        height: 2px;
+    }
+
+#opcionessubmenu {
+    display: none;
+}
+
+#InteriorExterior .separador_slider {
+    height: 1px;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#SelectedExteriorInterior {
+    text-align: center;
+    margin-top: -50px;
+    z-index: 9999;
+    position: relative;
+}
+
+#btnBacFormularioMobile {
+    display: none;
+}
+
+#marcasModelosMobile {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    #telefonos .col-md-1 {
+        display: none;
+    }
+
+    header #numeroTelefonos #contactanos {
+        position: absolute;
+        right: 70px;
+    }
+
+    #imgIconMarca {
+        background-color: #424D07;
+        border: none;
+        padding: 0px 50px 0px 50px;
+    }
+
+        #imgIconMarca.jeep {
+            background-color: #424D07;
+        }
+
+        #imgIconMarca.dodge {
+            background-color: #212121;
+        }
+
+        #imgIconMarca.fiat {
+            background-color: #FF1530;
+        }
+
+        #imgIconMarca.peugeot,
+        #imgIconMarca.peugeot-professional {
+            background-color: #0074E8;
+        }
+
+        #imgIconMarca.ram {
+            background-color: #7F7F7F;
+        }
+
+    header #numeroTelefonos #contactanos i.bi-chevron-down,
+    header #numeroTelefonos #contactanos i.bi-chevron-up {
+        font-size: 14px;
+    }
+
+    header #numeroTelefonos {
+        background-color: #000 !important;
+        height: 62px;
+        margin: 0 !important;
+        padding: 18px 50px 15px 50px;
+    }
+
+        header #numeroTelefonos a {
+            position: absolute;
+            left: 0;
+            top: 9px;
+            height: 37px;
+        }
+
+            header #numeroTelefonos a img {
+                height: 48px;
+            }
+
+    header #telefonos {
+        padding: 20px 30px;
+        height: 100%;
+        position: fixed;
+        margin: 0;
+        overflow: auto;
+    }
+
+        header #telefonos .row .col-md-2 {
+            border-bottom: solid 1px #707070;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+            header #telefonos .row .col-md-2 div {
+                margin: 25px 0px;
+            }
+
+    #imgModelo {
+        max-width: 90% !important;
+    }
+
+    #submenuTitulos .slick-dots li button:before {
+        font-family: 'slick';
+        font-size: 6px;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        content: 'ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢';
+        text-align: center;
+        opacity: .25;
+        color: black;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    #submenuTitulos .slick-dots li.slick-active button:before {
+        opacity: .75;
+        color: black;
+    }
+
+    #home-seminuevos-seccion .BtnSeminuevos, #home-promociones-servicio .Btnpromociones, #home-promociones-servicio .Btnservicio {
+        padding: 10px 10px !important;
+    }
+
+    .slick-dots {
+        bottom: -27px !important;
+    }
+
+    #TextosPromo {
+        padding-top: 15px;
+    }
+
+    #vehiculos > div {
+        padding: 25px 0;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+
+    #PromosVentas .slick-prev, #PromosRefacciones .slick-prev, #PromosServicio .slick-prev {
+        left: 0px !important;
+        z-index: 2;
+    }
+
+    #PromosVentas .slick-next, #PromosRefacciones .slick-next, #PromosServicio .slick-next {
+        right: 10px !important;
+    }
+
+    #Promos #PromosAutos {
+        padding: 0;
+    }
+
+    #Promos > div.activo {
+        padding: 100px 0;
+    }
+
+    .autos > div img {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .autos > div:first-child {
+        border: none;
+        margin: 0;
+    }
+
+    .autos > div span:hover, .autos > div span.activo {
+        border-bottom: solid 2px red;
+        opacity: 1;
+    }
+
+    .autos > div span {
+        min-height: 33px;
+        font-size: 14px;
+        font-family: 'Roboto-Bold';
+    }
+
+    #Promos {
+        padding: 0;
+    }
+
+    #TituloSelect {
+        background: black;
+        color: white;
+        border: none;
+        font-size: 20px;
+        font-family: 'Roboto-Bold';
+        padding: 15px 0;
+    }
+
+        #TituloSelect .bi.icons {
+            position: absolute;
+            right: 20px;
+        }
+
+        #TituloSelect span {
+            padding-left: 10%;
+            margin: 10px;
+        }
+
+    #Promociones .menu {
+        padding: 0;
+        font-size: 20px;
+        display: none;
+    }
+
+        #Promociones .menu.activo {
+            display: block;
+        }
+
+        #Promociones .menu span {
+            display: block;
+            text-align: left;
+            margin-left: 10%;
+            padding: 15px 0;
+        }
+
+            #Promociones .menu span.activo {
+                border: none;
+                display: none;
+            }
+
+    #submenuAutos {
+        margin-top: 45px;
+        padding-bottom: 100px;
+    }
+
+    #submenu .container {
+        overflow: scroll;
+        height: 100%;
+    }
+
+    #submenuTitulos {
+        position: absolute;
+        background: white;
+    }
+
+        #submenuTitulos > ul > div > div li {
+            height: auto;
+            padding-bottom: 11px !important;
+        }
+
+    #submenu ul li.activo {
+        border-bottom: solid 2px red;
+    }
+
+    #opcionessubmenu {
+        display: none;
+    }
+
+    #submenuTitulos > ul > div > div li div img {
+        width: 100% !important;
+    }
+
+    #submenuTitulos > ul {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+        #submenuTitulos > ul > div > div li {
+            border: none;
+            margin: 0 5px 0 0;
+            font-size: 11px;
+        }
+
+    #opcionessubmenu.activo {
+        display: block;
+        position: absolute;
+        top: 42px;
+        width: 100%;
+        background-color: white;
+        height: 60px;
+        z-index: 1000;
+    }
+
+    #iconAtras {
+        font-size: 22px;
+        padding-left: 20px;
+        display: inline-block;
+        width: 60px;
+        margin-top: 10px;
+    }
+
+    #submenu {
+        top: 100px;
+        height: 100%;
+        z-index: 9999;
+    }
+
+    #disclaymerDesde #MarcaModeloAnio {
+        display: block;
+    }
+
+    #bgCotizacion, #bgPruebaManejo {
+        background-image: url(/assets/img/Background_Cotizacion_Prueba_Manejo_Mobile.jpg) !important;
+        min-height: 500px !important;
+    }
+
+    #formulario .paso > div .form-select#ddlTipo {
+        margin: 25px 0;
+    }
+
+    #formulario .paso > div .form-select {
+        margin: 0;
+    }
+
+    #formulario .paso.row input, #formulario .paso.row textarea {
+        margin: 25px 0;
+    }
+
+    #bgServicio {
+        background-image: url(/assets/img/Background_Cita_de_Servicio_mobile.jpg) !important;
+        min-height: 250px !important;
+    }
+
+    #btnBacFormulario .siguiente {
+        display: none;
+    }
+
+    #btnBacFormularioMobile {
+        display: block;
+    }
+    /*
+    #boxHeader .list-group.items .list-group .list-group-item a .TextIcon {
+        width: 80px;
+        text-align: left;
+        margin-right: 10px;
+    }
+
+    #boxHeader .list-group.items .list-group .list-group-item a .Telefonos {
+        text-align: left;
+        margin-right: 11px;
+        margin-top: 30px;
+    }
+    */
+
+    .ir-arriba {
+        bottom: 87px;
+        right: 10px;
+        font-size: 35px;
+    }
+
+    #InteriorExterior .slick-dots li {
+        font-size: 12px;
+    }
+
+    #InteriorExterior .slick-dots li {
+        padding: 0 0 30px 0;
+    }
+
+    .checkboxes.aviso .chkavisos {
+        font-size: 13px;
+    }
+
+    #Promos .container .slick-slide img.full {
+        display: none;
+    }
+
+    #Promos .container .slick-slide img.mobile {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    #InteriorExterior .slick-dots li {
+        width: 47%;
+    }
+
+    #SelectedExteriorInterior {
+        margin-top: 5px;
+    }
+
+    #InteriorExterior .separador_slider {
+        width: 48%;
+    }
+
+    #Descargas .btn {
+        font-size: 14px;
+        width: 200px !important;
+        display: inline-block;
+    }
+
+    #Descargas #CatalogoPDF.btn {
+        margin-top: 20px;
+    }
+
+    #backRedEdge, #backRedEdge2 {
+        height: 400px;
+        border-top-right-radius: 9% 16%;
+        border-top-left-radius: 8% 0px;
+        border-bottom-left-radius: 9% 16%;
+        border-bottom-right-radius: 9% 0px;
+    }
+
+    #Descargas #backRedEdge2 > div {
+        margin: 0px
+    }
+    /*
+    #boxHeader {
+        max-width: 100%;
+        margin: 0;
+    }
+     */
+    .btnSiguiente {
+        width: 100%;
+        margin: 50px 0 0 auto;
+    }
+
+    .btnAnterior {
+        width: 100%;
+        margin: 120px 0 0 auto;
+        background-color: transparent;
+        border: solid 1px white;
+    }
+
+    .DireccionMobile {
+        display: block;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .contactanos .table {
+        display: none;
+    }
+
+    .informacionFooter {
+        text-align: center;
+    }
+
+    #home-promociones-servicio {
+        display: block !important;
+    }
+
+    #home-seminuevos-seccion .BtnSeminuevos {
+        font-size: 12px !important;
+    }
+
+    #home-seminuevos-seccion #TextSeminuevos, #home-promociones-servicio #Textpromociones, #home-promociones-servicio #Textservicio {
+        font-size: 16px !important;
+        margin-top: 32% !important;
+        margin-left: 5% !important;
+    }
+
+    #home-seminuevos-seccion #TextSeminuevos {
+        margin-top: 10% !important;
+        bottom: 10% !important;
+    }
+
+        #home-seminuevos-seccion #TextSeminuevos .txtTitle {
+            width: 120px;
+            display: block;
+            font-size: 16px;
+            text-align: left;
+        }
+
+    #home-promociones-servicio .Btnpromociones, #home-promociones-servicio .Btnservicio {
+        font-size: 12px !important;
+        padding: 10px !important;
+    }
+
+    .BtnSeminuevos {
+        font-size: 12px !important;
+    }
+
+    #home-promociones-servicio > div {
+        width: 100% !important;
+        display: block !important;
+    }
+
+    header #logo {
+        width: 150px;
+        padding: 10px;
+    }
+
+    #menuMobileHome {
+        background-color: black;
+        width: 100%;
+        height: 102%;
+        top: 0;
+        display: none;
+        position: absolute;
+        overflow: scroll;
+        z-index: 99999;
+    }
+
+    .MenuMobilIcon,
+    .menuMobilIconClose {
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        right: 10px;
+        display: block;
+        top: 11px;
+        background-color: #334E8B;
+        border-radius: 20px;
+        width: 33px;
+        height: 33px;
+        text-align: center;
+        color: white;
+    }
+
+        .MenuMobilIcon.jeep,
+        .menuMobilIconClose.jeep {
+            background-color: #424D07;
+        }
+
+        .MenuMobilIcon.dodge,
+        .menuMobilIconClose.dodge {
+            background-color: #CC2B2B;
+        }
+
+        .MenuMobilIcon.fiat,
+        .menuMobilIconClose.fiat {
+            background-color: #FF1530;
+        }
+
+        .MenuMobilIcon.peugeot,
+        .menuMobilIconClose.peugeot,
+        .MenuMobilIcon.peugeot-professional,
+        .menuMobilIconClose.peugeot-professional {
+            background-color: #0074E8;
+        }
+
+        .MenuMobilIcon.ram,
+        .menuMobilIconClose.ram {
+            background-color: #7F7F7F;
+        }
+
+    #home-ventajas-slider .separador-menu {
+        display: none;
+    }
+
+    #marcasModelosMobile ul {
+        padding: 0;
+    }
+
+        #marcasModelosMobile ul li:first-child .textos {
+            background-color: red;
+        }
+
+        #marcasModelosMobile ul li {
+            padding: 0;
+            height: auto;
+            margin: 0;
+        }
+
+            #marcasModelosMobile ul li .textos {
+                padding-left: 50px;
+                background-color: #1f1f1f;
+                opacity: 1;
+                color: white;
+                font-size: 16px;
+                font-weight: bolder;
+                text-transform: initial;
+                width: 100%;
+                padding: 10px 50px;
+            }
+
+            #marcasModelosMobile ul li > div > img {
+                height: 35px;
+            }
+
+    .modelosAutos {
+        display: none;
+    }
+
+    header div.menu {
+        display: none;
+        padding-left: 0;
+        margin: 0;
+        position: absolute;
+        z-index: 20;
+        background: white;
+        height: auto;
+    }
+
+        header div.menu .nav.justify-content-center {
+            justify-content: left !important;
+            display: block;
+        }
+
+        header div.menu .nav li {
+            display: block;
+            padding: 20px 0;
+            position: relative;
+        }
+
+    header div ul li.nav-item a.nav-link {
+        font-size: 18px;
+        padding-left: 50px;
+    }
+
+    #menuFloat {
+        background-color: #424D07;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+        #menuFloat a {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #menuFloat.jeep {
+            background-color: #424D07;
+        }
+
+        #menuFloat.dodge {
+            background-color: #CC2B2B;
+        }
+
+        #menuFloat.fiat {
+            background-color: #FF1530;
+        }
+
+        #menuFloat.peugeot,
+        #menuFloat.peugeot-professional {
+            background-color: #0074E8;
+        }
+
+        #menuFloat.ram {
+            background-color: #7F7F7F;
+        }
+
+    #home-modelos-recientes > h1, #home-promociones-mes > h1, #home-seminuevos > h1, #home-ventajas > h1 {
+        font-size: 28px !important;
+    }
+
+    #float-menu {
+        top: auto !important;
+        padding: 10px 10px 10px 0px !important;
+    }
+
+    .informacionFooter.row > div {
+        padding: 20px 0px;
+    }
+
+        .informacionFooter.row > div.col-md-2:nth-last-child(2) {
+            border: none;
+        }
+
+        .informacionFooter.row > div.col-md-2 {
+            border-bottom: solid 1px;
+            width: 250px;
+            margin: 0 auto;
+        }
+
+    .contadorModelos {
+        position: absolute;
+        right: 50px;
+        font-size: 12px;
+        font-family: 'Roboto';
+        margin-top: 4px;
+    }
+
+    #marcasModelosMobile ul li i {
+        font-style: initial;
+        position: absolute;
+        right: 30px;
+    }
+
+    .modelosAutos img {
+        max-width: 100%;
+    }
+
+    .modelosAutos a {
+        text-align: center;
+        display: block;
+    }
+
+    .modeloMarca {
+        padding: 20px 0 0px 0;
+        border-bottom: solid 1px #9e9e9e;
+    }
+
+        .modeloMarca .col-8 > span {
+            margin-top: 7px;
+            display: block;
+            margin-left: 10px;
+        }
+
+        .modeloMarca span > strong {
+            font-family: 'Roboto-Bold';
+            text-transform: initial;
+            font-size: 15px;
+        }
+
+        .modeloMarca span > span {
+            font-family: 'Roboto-Medium';
+            text-transform: initial;
+            font-size: 14px;
+        }
+
+    #marcasModelosMobile ul li .btnRed i, #marcasModelosMobile ul li .btnRedOut i {
+        position: relative;
+        right: auto;
+        margin-left: 5px;
+    }
+
+    .modelosAutos a.btnRed {
+        color: red;
+        text-decoration: none;
+        font-size: 14px;
+        font-family: 'Roboto-Bold';
+        padding: 20px 0;
+        text-align: right;
+    }
+
+    .modelosAutos a.btnRedOut {
+        color: black;
+        text-decoration: none;
+        font-size: 14px;
+        font-family: 'Roboto-Bold';
+        padding: 20px 0;
+    }
+
+    #Descargas .btn a {
+        padding: 0;
+    }
+
+    #Descargas .btn.cat a {
+        padding: 0;
+    }
+
+    main {
+        margin: 0 !important;
+    }
+
+    #divMarcas {
+        margin: 80px 0px 30px 0px;
+    }
+
+    #divListaMarcas a,
+    #divContactosDirectos a {
+        padding: 10px 0;
+    }
+
+    #divListaMenu li a {
+        padding: 18px 0;
+    }
+
+    #divListaMenu li a {
+        padding: 18px 0;
+    }
+
+    footer .container > div {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    footer #footerRedes {
+        text-align: left;
+    }
+
+    #divMarcas > span {
+        font-size: 16px;
+        text-decoration: none;
+        color: #707070;
+        padding: 15px 0 15px 24px;
+    }
+
+    .Desktop {
+        display: none !important;
+    }
+
+    #promocionesHome h2 {
+        font-size: 28px !important;
+    }
+
+    footer {
+        margin-left: 0
+    }
+
+    #headerShowroom {
+        margin-left: 0;
+        padding-left: 0 !important;
+        z-index: 9999999;
+        /*margin-top: 70px;*/
+        box-shadow: none;
+        border: none;
+        min-height: calc(100% - 140px);
+    }
+
+    #btnCloseShowroom {
+        background-color: white;
+        padding: 20px;
+        margin-top: 60px;
+        display: none;
+    }
+
+        #btnCloseShowroom a {
+            color: black;
+            font-size: 16px;
+            font-family: 'Roboto-Medium';
+        }
+
+            #btnCloseShowroom a i {
+                margin-right: 10px;
+            }
+
+    body:has(.MostrarMenuFlotante) footer {
+        padding-bottom: 50px !important;
+    }
+
+    #urlsMedia {
+        margin-bottom: 50px;
+    }
+
+    #btnBacFormulario {
+        margin: 0;
+    }
+}
+
+#submenuTitulos {
+    vertical-align: top;
+}
+
+#submenuAutos > div > div.row > div {
+    align-items: flex-end;
+    align-self: self-end;
+    vertical-align: bottom;
+}
+
+.listado article .datos-precios .fila-precios .col {
+    border-left: none !important;
+}
+
+.ficha-nuevo .zona-detalles #slider-versiones .slider .cabecerasubL {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+    .ficha-nuevo .zona-detalles #slider-versiones .slider .cabecerasubL .cabprecioL {
+        font-size: 2.3rem;
+        font-family: "Roboto",sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    .ficha-nuevo .zona-detalles #slider-versiones .slider .cabecerasubL .precioL {
+        font-size: 2.5rem;
+        font-family: "Roboto-Bold",sans-serif;
+        padding: 0;
+        margin-top: -20px;
+        color: #CCC !important;
+        text-decoration: line-through;
+    }
+
+#home-seminuevos-seccion img {
+    width: 100%;
+}
+
+#home-seminuevos-seccion #TextSeminuevos, #home-promociones-servicio #Textpromociones, #home-promociones-servicio #Textservicio {
+    position: absolute;
+    /* margin-top: 18%; */
+    color: white;
+    margin-left: 5%;
+    font-size: 30px;
+    font-family: 'Roboto';
+    text-align: center;
+    bottom: 10%;
+}
+
+#home-seminuevos-seccion {
+    position: relative;
+}
+
+    #home-seminuevos-seccion #TextSeminuevos {
+        margin-top: 11%;
+        /* margin-left: 42%; */
+        bottom: 33%;
+    }
+
+    #home-seminuevos-seccion .BtnSeminuevos, #home-promociones-servicio .Btnpromociones, #home-promociones-servicio .Btnservicio {
+        background: red;
+        padding: 20px;
+        border-radius: 20px;
+        font-size: 16px;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 20px;
+        cursor: pointer;
+        font-family: 'Roboto-Medium';
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+
+#home-promociones-servicio {
+    display: flex;
+}
+
+    #home-promociones-servicio > div {
+        display: inline-block;
+        margin: 0px;
+        padding: 0px;
+        width: 50%;
+        position: relative;
+    }
+
+        #home-promociones-servicio > div img {
+            width: 100%;
+        }
+
+#bgCotizacion, #bgPruebaManejo {
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/img/Background_Cotizacion_Prueba_Manejo.jpg);
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-color: black;
+    min-height: 700px;
+}
+
+#bgServicio {
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/img/Background_Cita_de_Servicio.jpg);
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-color: black;
+    min-height: 700px;
+}
+
+#formulario {
+    background: #272828;
+    color: white;
+    font-size: 14px;
+    font-family: 'Roboto';
+    padding: 60px 0;
+}
+
+    #formulario .row {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #formulario #paso1 > div {
+        padding: 15px 0;
+    }
+
+    #formulario h1 {
+        font-size: 20px;
+        color: white;
+        font-family: 'Roboto-Bold';
+    }
+
+    #formulario .paso .title {
+        font-family: 'Roboto-Bold';
+    }
+
+    #formulario h1 .red {
+        color: #c5140c;
+    }
+
+    #formulario + div {
+        padding: 0;
+    }
+
+#errorMsgCotizacion {
+    display: none;
+    color: red;
+    font-family: 'Roboto-Medium';
+    font-size: 12px;
+}
+
+#errorMsgContacto {
+    display: none;
+    color: red;
+    font-family: 'Roboto-Medium';
+    font-size: 12px;
+    padding-bottom: 50px;
+}
+
+.divbtnenv .btnenviar {
+    padding: 10px 45px;
+    border-radius: 20px;
+}
+
+footer .infofooter {
+    padding: 40px 0 0 !important;
+}
+
+footer .container > .row > .row img {
+    width: 100%;
+}
+
+.comentarios #Direccion, .comentarios #Email {
+    font-size: 18px;
+}
+
+.DireccionMobile .card {
+    border: none;
+}
+
+    .DireccionMobile .card .card-header {
+        border: none;
+        background-color: #334E8B;
+        color: white;
+    }
+
+    .DireccionMobile .card .card-footer {
+        background-color: #f1f1f1;
+        border: none;
+    }
+
+.contactanos {
+    background: black;
+}
+
+    .contactanos .table {
+        color: black;
+        margin: 0px 0 80px 0;
+    }
+
+        .contactanos .table tbody tr {
+            background: white;
+            text-align: center;
+        }
+
+        .contactanos .table tr {
+            padding: 10px 0;
+        }
+
+.phonefooter, .phonefooter:hover {
+    text-decoration: none;
+    color: white;
+}
+
+footer .container > .row > .row span.title {
+    font-size: 16px;
+    font-family: 'Roboto-Bold';
+    padding-right: 10px;
+}
+
+footer .container > .row > .row span, footer .container > .row > .row > div > div.contaco {
+    font-size: 14px;
+}
+
+footer .container > .row > .row a.avisoprivacidad {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Roboto-Medium';
+}
+
+footer .container-fluid.p-0 .bloque img {
+    width: 25px !important;
+    margin-top: -10px;
+    margin-right: 8px;
+}
+
+.contactanos .table th, .contactanos .table td {
+    padding: 15px 0;
+    font-family: 'Roboto';
+    font-size: 14px;
+}
+
+.txtTelefono {
+    opacity: 0;
+}
+
+.numeroOriginal {
+    color: white;
+    display: inline-block;
+    margin-left: -78px;
+}

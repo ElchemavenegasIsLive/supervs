@@ -1,0 +1,185 @@
+let modelosPormo = [];
+(function ($) {
+    if (modelosPormo.length == 0) {
+        $.ajax({
+            type: 'POST',
+            url: "/info/Default.aspx",
+            async: true,
+            data: {
+                r: "ModelosPromoHome",
+                idDis: $("#Header_hdnId").val(),
+                x: Math.random()
+            },
+            dataType: 'json',
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                sweetAlert('Oops...', errorThrown, 'error');
+            },
+            success: function (data) {
+                modelosPormo = data;
+                cargaModelosPromo("Todas");
+            }
+        });
+    }
+
+    var ventana_ancho = $(window).width();
+    if (ventana_ancho < 500) {
+        let anchoTotal = 0;
+        $('#marcasPromos div').each(function (index) {
+            var ancho = $(this).width() + 60;
+            anchoTotal += ancho;
+        });
+        $("#marcasPromos").width(anchoTotal);
+    }
+})(jQuery);
+$(document).ready(function () {
+    $("#marcasPromos .btnPromos").click(function () {
+        const btnClicked = $(this).text().replace(' ', '');
+        const btnActivo = $("#marcasPromos .btnPromos.activo").text().replace(' ', '');
+        if (btnClicked == btnActivo)
+            return;
+
+        if (btnClicked == 'Todas') {
+            $("#btnMarca").removeClass("activo");
+        }
+        else {
+            $("#btnMarca").addClass("activo");
+            $("#btnMarca a").removeClass();
+            $("#btnMarca a").addClass(btnClicked.toLowerCase());
+            $("#btnMarca a").attr('href', '/' + btnClicked.toLowerCase().replace("peugeotprofessional", "peugeot-professional") + '/promociones/');
+        }
+        $("#marcasPromos .btnPromos.activo").removeClass('activo');
+        $(this).addClass('activo');
+        $(".slick-dots li button").removeClass();
+        $(".slick-dots li button").addClass(btnClicked);
+
+        $("#listaPromos").removeClass(btnActivo.toLowerCase());
+        $("#listaPromos").addClass(btnClicked.toLowerCase());
+
+        $(".progress-container").removeClass(btnActivo.toLowerCase());
+        $(".progress-container").addClass(btnClicked.toLowerCase());
+
+        cargaModelosPromo(btnClicked);
+        console.log(btnClicked);
+
+    });
+});
+function cargaModelosPromo(marca) {
+    let modelosPromoFiltrados;
+
+    if (marca === 'Todas') {
+        modelosPromoFiltrados = modelosPormo;
+    } else {
+        modelosPromoFiltrados = modelosPormo.filter(j => j.Marca.toLowerCase().replace(' ', '') === marca.toLowerCase());
+    }
+    // Generar HTML para Slick Slider
+    let _htmlPromos = "";
+    if (modelosPromoFiltrados.length > 0) {
+        modelosPromoFiltrados.forEach(modelo => {
+            const primeraVersionPromo = modelo.Versiones.find(v => v.Promociones != null)
+            if (primeraVersionPromo != undefined) {
+                _htmlPromos += `<div class="cardModelopromo ${modelo.Marca.toLowerCase()}">
+                            <img src="https://spdfc.s3.us-west-2.amazonaws.com/autos/NuevosAutos/promociones/${modelo.Clave_gen}.jpg" alt="${modelo.Marca}  ${modelo.Modelo} ${modelo.Anio}" />
+                            <div class="cardDetalle ${modelo.Clave_gen}">
+                                <span class="tituloModelo">${modelo.Marca}  ${modelo.Modelo} ${modelo.Anio}</span>
+                                <span class="txtVersion">Versiones</span>
+                                <select class="selectVersiones" onchange="CambieVersionPromo(this,'${modelo.Clave_gen}');">`;
+                modelo.Versiones.forEach(version => {
+                    if (version.Promociones != null)
+                        _htmlPromos += `<option value="${version.IdVer}"> ${version.Version} </option>`;
+                });
+                _htmlPromos += `</select>
+                                <div class="txtPromo">`;
+                modelo.Versiones[0].Promociones.forEach(promo => {
+                    _htmlPromos += `<span>-${promo} </span>`;
+                });
+                _htmlPromos += `</div>
+                                <a href="/${modelo.Marca.toLowerCase().replace(" ", "-")}/promociones/${modelo.Modelo.replaceAll(' ', '-').toLowerCase() + "/" + modelo.Anio.toLowerCase() + "/"}" onclick="verDetalle('${modelo.Clave_gen}');return false;" >Ver detalles ></a>
+                            </div>
+                        </div>`;
+            }
+        });
+        if ($('#listaPromos').hasClass('slick-initialized')) {
+            $('#listaPromos').slick('unslick');
+        }
+        $("#listaPromos").html(_htmlPromos);
+        $("#listaPromos").slick({
+            dots: false,
+            infinite: false,
+            slidesToShow: 4,
+            responsive: [{
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }]
+        });
+        if ($(".progress-container").length > 0) {
+            const totalSlides = $('#listaPromos .cardModelopromo').length;
+
+            $('#listaPromos').on('afterChange', function (event, slick, currentSlide) {
+                actualizarBarraProgreso(currentSlide, totalSlides);
+            });
+            actualizarBarraProgreso(0, totalSlides);
+        }
+    }
+    else {
+        $("#listaPromos").html("<h2 class='text-center'>Por el momento no existen promociones</h2>");
+        $("#btnMarca").removeClass();
+    }
+}
+function verDetalle(clave_gen) {
+    const idVer = $(".cardDetalle." + clave_gen + " .selectVersiones").val();
+
+    setCookie("VersionSelected", idVer, 1);
+    setCookie("TipoSelec", promoActiva, 1);
+    window.location.href = $(".cardDetalle." + clave_gen + " a").attr('href');
+
+}
+function CambieVersionPromo(promo, clave_gen) {
+    let veriosnPromos = modelosPormo.find(m => m.Clave_gen == clave_gen).Versiones.find(v => v.IdVer == $(promo).val());
+    let _htmlPromosVersion = "";
+
+    veriosnPromos.Promociones.forEach(promo => {
+        _htmlPromosVersion += `<span>-${promo} </span>`;
+    });
+    $(".cardDetalle." + clave_gen + " .txtPromo").html(_htmlPromosVersion);
+}
+// Funci?n para actualizar la barra de progreso
+function actualizarBarraProgreso(currentIndex, totalSlides) {
+    const porcentaje = ((currentIndex + 1) / totalSlides) * 100; // Calcular el porcentaje
+    $('#progressBar').css('width', porcentaje + '%'); // Actualizar el ancho de la barra
+}
+function resizeSlider() {
+    $height = $(document).width() * .37;
+    jQuery("#home-main-slider .slide").css("height", $height)
+}
+function gotoCar(url) {
+    var ventana_ancho = $(window).width();
+    if (ventana_ancho < 500) {
+        window.location.assign(url);
+    }
+}
+function cambiarHome(numberHomer) {
+
+    $.ajax({
+        type: 'POST',
+        url: "/info/Default.aspx",
+        async: true,
+        data: {
+            r: "ChangeHome",
+            Home: numberHomer,
+            x: Math.random()
+        },
+        dataType: 'json',
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            sweetAlert('Oops...', errorThrown, 'error');
+        },
+        success: function (data) {
+            location.reload();
+        }
+    });
+}
+function verMenuHome() {
+    $("#menuHome").slideToggle(400)
+}
